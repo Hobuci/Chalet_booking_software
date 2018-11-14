@@ -1,0 +1,60 @@
+﻿<Window x:Name="mainwindow" x:Class="Presentation.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Presentation"
+        mc:Ignorable="d"
+        Title="Chalet Booking" Height="541.433" Width="899.828" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Closing="mainwindow_Closing" Initialized="mainwindow_Initialized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="361*"/>
+            <ColumnDefinition Width="531*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle x:Name="rect_customer" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="86" Margin="104.634,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="231" Grid.Column="1"/>
+        <Rectangle x:Name="rect_booking" HorizontalAlignment="Left" Height="86" Margin="230,388,0,0" VerticalAlignment="Top" Width="231" Stroke="Black" Grid.ColumnSpan="2"/>
+        <DatePicker x:Name="datepicker_arrivalDate" HorizontalAlignment="Left" Margin="237,395,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datepicker_departureDate" HorizontalAlignment="Left" Margin="352,395,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtb_chaletID" HorizontalAlignment="Left" Height="23" Margin="352,436,0,0" TextWrapping="Wrap" Text="Chalet ID" VerticalAlignment="Top" Width="61" GotFocus="txtb_chaletID_GotFocus" LostFocus="txtb_chaletID_LostFocus" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtb_customerName" HorizontalAlignment="Left" Height="23" Margin="160.634,401,0,0" TextWrapping="Wrap" Text="Customer Name" VerticalAlignment="Top" Width="160" GotFocus="txtb_customerName_GotFocus" LostFocus="txtb_customerName_LostFocus" Grid.Column="1"/>
+        <TextBox x:Name="txtb_customerAddress" HorizontalAlignment="Left" Height="23" Margin="115.634,436,0,0" TextWrapping="Wrap" Text="Customer Address" VerticalAlignment="Top" Width="205" GotFocus="txtb_customerAddress_GotFocus" LostFocus="txtb_customerAddress_LostFocus" Grid.Column="1"/>
+        <Button x:Name="btn_addBooking" Content="Add Booking" HorizontalAlignment="Left" Margin="230,479,0,0" VerticalAlignment="Top" Width="102" Click="btn_addBooking_Click"/>
+        <ListBox x:Name="listbox_bookingsList" HorizontalAlignment="Left" Height="359" Margin="230,24,0,0" VerticalAlignment="Top" Width="231" FontWeight="Medium" BorderThickness="8,8,1,1" SelectionChanged="listbox_bookingsList_SelectionChanged" GotFocus="listbox_bookingsList_GotFocus" Grid.ColumnSpan="2"/>
+        <Label x:Name="lbl_Bookings" Content="Bookings" HorizontalAlignment="Left" Margin="233,2,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold"/>
+        <Label x:Name="lbl_customerID" Content="#ID" HorizontalAlignment="Left" Margin="115.634,397,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Height="27" Grid.Column="1"/>
+        <Label x:Name="lbl_bookingRef" Content="#Ref" HorizontalAlignment="Left" Margin="237,432,0,0" VerticalAlignment="Top" FontWeight="SemiBold" Height="27" Width="58"/>
+        <Button x:Name="btn_deleteBooking" Content="Delete Booking" HorizontalAlignment="Left" Margin="359,479,0,0" VerticalAlignment="Top" Width="102" Click="btn_deleteBooking_Click" Visibility="Hidden" Grid.ColumnSpan="2"/>
+        <Button x:Name="btn_amendBooking" Content="Save Changes" HorizontalAlignment="Left" Margin="230,479,0,0" VerticalAlignment="Top" Width="102" Click="btn_amendBooking_Click" Visibility="Hidden"/>
+        <Button x:Name="btn_addCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="104.634,479,0,0" VerticalAlignment="Top" Width="102" Click="btn_addCustomer_Click" Grid.Column="1"/>
+        <Button x:Name="btn_amendCustomer" Content="Save Changes" HorizontalAlignment="Left" Margin="104.634,479,0,0" VerticalAlignment="Top" Width="102" Click="btn_amendCustomer_Click" Visibility="Hidden" Grid.Column="1"/>
+        <Button x:Name="btn_deleteCustomer" Content="Delete Customer" HorizontalAlignment="Left" Margin="233.634,479,0,0" VerticalAlignment="Top" Width="102" Click="btn_deleteCustomer_Click" Visibility="Hidden" Grid.Column="1"/>
+        <ListBox x:Name="listbox_customerList" HorizontalAlignment="Left" Height="359" Margin="104.634,24,0,0" VerticalAlignment="Top" Width="231" FontWeight="Medium" BorderThickness="8,8,1,1" SelectionChanged="listbox_customerList_SelectionChanged" GotFocus="listbox_customerList_GotFocus" Grid.Column="1"/>
+        <ListBox x:Name="listbox_guestList" HorizontalAlignment="Left" Height="261" Margin="340.634,122,0,0" VerticalAlignment="Top" Width="177" FontWeight="Medium" BorderThickness="4,4,1,1" GotFocus="listbox_guestList_GotFocus" SelectionChanged="listbox_guestList_SelectionChanged" Grid.Column="1"/>
+        <Label x:Name="lbl_Customers" Content="Customers" HorizontalAlignment="Left" Margin="108.634,2,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold" Grid.Column="1"/>
+        <Label x:Name="lbl_GuestList" Content="Guest List" HorizontalAlignment="Left" Margin="340.634,101,0,0" VerticalAlignment="Top" FontSize="15" FontWeight="SemiBold" Grid.Column="1"/>
+        <Rectangle x:Name="rect_guest" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="86" Margin="340.634,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="177" Grid.Column="1"/>
+        <TextBox x:Name="txtb_guestName" HorizontalAlignment="Left" Height="23" Margin="350.634,401,0,0" TextWrapping="Wrap" Text="Guest Name" VerticalAlignment="Top" Width="160" GotFocus="txtb_guestName_GotFocus" LostFocus="txtb_guestName_LostFocus" IsEnabled="False" Grid.Column="1"/>
+        <TextBox x:Name="txtb_guestPassNo" HorizontalAlignment="Left" Height="23" Margin="350.634,436,0,0" TextWrapping="Wrap" Text="Passport No." VerticalAlignment="Top" Width="110" GotFocus="txtb_guestPassNo_GotFocus" LostFocus="txtb_guestPassNo_LostFocus" IsEnabled="False" Grid.Column="1"/>
+        <TextBox x:Name="txtb_guestAge" HorizontalAlignment="Left" Height="23" Margin="477.634,436,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top" Width="33" GotFocus="txtb_guestAge_GotFocus" LostFocus="txtb_guestAge_LostFocus" IsEnabled="False" Grid.Column="1"/>
+        <Button x:Name="btn_addGuest" Content="Add Guest" HorizontalAlignment="Left" Margin="340.634,479,0,0" VerticalAlignment="Top" Width="87" Click="btn_addGuest_Click" Visibility="Hidden" Grid.Column="1"/>
+        <Button x:Name="btn_deleteGuest" Content="Delete Guest" HorizontalAlignment="Left" Margin="430.634,479,0,0" VerticalAlignment="Top" Width="87" Click="btn_deleteGuest_Click" Visibility="Hidden" Grid.Column="1"/>
+        <Button x:Name="btn_amendGuest" Content="Save Changes" HorizontalAlignment="Left" Margin="340.634,479,0,0" VerticalAlignment="Top" Width="87" Click="btn_amendGuest_Click" Visibility="Hidden" Grid.Column="1"/>
+        <Label x:Name="lbl_Cost" Content="Cost" HorizontalAlignment="Left" Margin="49,2,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold"/>
+        <TextBox x:Name="txtb_cost" HorizontalAlignment="Left" Height="450" Margin="10,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" BorderThickness="8,8,1,1" IsReadOnly="True" BorderBrush="#FF8FB292" FontSize="15" FontStyle="Italic" Text="Holiday Chalet Booking Receipt&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
+        <TextBox x:Name="txtb_price" HorizontalAlignment="Left" Height="30" Margin="10,444,0,0" TextWrapping="Wrap" Text="TOTAL  £ " VerticalAlignment="Top" Width="136" BorderThickness="8,8,1,1" FontWeight="SemiBold" IsReadOnly="True" BorderBrush="#FF3BB256"/>
+        <Label x:Name="lbl_Extras" Content="Extras" HorizontalAlignment="Left" Margin="151,43,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="SemiBold" UseLayoutRounding="False" Width="74" Height="31" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btn_extra_eveningMeal" Content="Evening Meal" HorizontalAlignment="Left" Margin="146,101,0,0" VerticalAlignment="Top" Width="84" Click="btn_extra_eveningMeal_Click" IsEnabled="False"/>
+        <Button x:Name="btn_extra_breakfast" Content="Breakfast" HorizontalAlignment="Left" Margin="146,126,0,0" VerticalAlignment="Top" Width="84" Click="btn_extra_breakfast_Click" IsEnabled="False"/>
+        <Button x:Name="btn_extra_carHire" Content="Car Hire" HorizontalAlignment="Left" Margin="146,151,0,0" VerticalAlignment="Top" Width="84" Click="btn_extra_carHire_Click" IsEnabled="False"/>
+        <Button x:Name="btn_extra_eveningMeal_Remove" Content="Evening Meal" HorizontalAlignment="Left" Margin="146,225,0,0" VerticalAlignment="Top" Width="84" Click="btn_extra_eveningMeal_Minus_Click" IsEnabled="False"/>
+        <Button x:Name="btn_extra_breakfast_Remove" Content="Breakfast" HorizontalAlignment="Left" Margin="146,250,0,0" VerticalAlignment="Top" Width="84" Click="btn_extra_breakfast_Minus_Click" IsEnabled="False"/>
+        <Button x:Name="btn_extra_carHire_Remove" Content="Car Hire" HorizontalAlignment="Left" Margin="146,275,0,0" VerticalAlignment="Top" Width="84" Click="btn_extra_carHire_Minus_Click" IsEnabled="False"/>
+        <Label x:Name="lbl_Extras_Plus" Content="+" HorizontalAlignment="Left" Margin="151,65.26,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="ExtraBold" UseLayoutRounding="False" Width="74" Height="35.74" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lbl_Extras_Minus" Content="-" HorizontalAlignment="Left" Margin="151,189.26,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="ExtraBold" UseLayoutRounding="False" Width="74" Height="35.74" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lbl_eveningMeal_cost" Content="Evening Meal = " HorizontalAlignment="Left" Margin="16,266,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="14" Visibility="Hidden"/>
+        <Label x:Name="lbl_breakfast_cost" Content="Breakfast = " HorizontalAlignment="Left" Margin="16,305,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="14" Visibility="Hidden"/>
+        <Label x:Name="lbl_carHire_cost" Content="Car Hire = " HorizontalAlignment="Left" Margin="16,344,0,0" VerticalAlignment="Top" FontStyle="Italic" FontSize="14" Visibility="Hidden"/>
+        <Label x:Name="lbl_CarHire" Content="Car Hire Details" HorizontalAlignment="Left" Margin="341,5,0,0" VerticalAlignment="Top" FontSize="13" FontWeight="SemiBold" Grid.Column="1" Visibility="Hidden"/>
+        <TextBox x:Name="txtb_CarHire" Grid.Column="1" HorizontalAlignment="Left" Height="71" Margin="341,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" BorderThickness="4,4,1,1" Visibility="Hidden"/>
+    </Grid>
+</Window>
